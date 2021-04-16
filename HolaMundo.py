@@ -16,6 +16,10 @@ class holaMundo(unittest.TestCase):
         drive = self.driver
         drive.get("http://www.platzi.com")
 
+    def testwikipedia (self): # En esta funcion colocamos todos los paso a ejecutar
+        drive = self.driver
+        drive.get("http://www.wikipedia.org")    
+
 
     def tearDown(self):
         self.driver.quit() #Cierra la ventana una vez finalizada la ejecución
