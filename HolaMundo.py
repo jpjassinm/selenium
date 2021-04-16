@@ -6,10 +6,15 @@ from selenium import webdriver #Importamos el conector con la pagina.
 class holaMundo(unittest.TestCase):
 
     def setUp(self):
-        return super().setUp()
+        self.driver = webdriver.Chrome(executable_path = r"C://Users/Colpensiones/Documents/Selenium/chromedriver.exe")
+        drive = self.driver
+        drive.implicitly_wait(7)
+
 
     def testHolaMundo (self): # En esta funcion colocamos todos los paso a ejecutar
-        pass
+        drive = self.driver
+        drive.get("http://www.platzi.com")
+
 
     def tearDown(self):
         self.driver.quit() #Cierra la ventana una vez finalizada la ejecución
