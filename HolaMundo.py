@@ -19,5 +19,5 @@ class holaMundo(unittest.TestCase):
     def tearDown(self):
         self.driver.quit() #Cierra la ventana una vez finalizada la ejecución
 
-if name == "__main__":
+if __name__ == '__main__':
     unittest.main(verbosity=2, testRunner= HTMLTestRunner(output = "Reportes", report_name = "Hola_mundo_Reporte"))
