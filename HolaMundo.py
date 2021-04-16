@@ -1,3 +1,4 @@
+#para que este proyecto funcione debes instalar pyunitreport y selenium, tambien se debe descargar del chromedrive para selenium.
 import unittest #Lo utilizamos para traer todas nuestra pruebas.
 from pyunitreport import HTMLTestRunner # Nos ayudar a orquetar cada una de las pruebas, junto con los reportes.
 from selenium import webdriver #Importamos el conector con la pagina.
