@@ -2,10 +2,6 @@ import pandas as pd
 from time import sleep
 from selenium import webdriver
 
-
-csv = open('./ENTRADA/versiculos.xls','w')
-csv.close()
-
 driver = webdriver.Chrome('./chromedriver.exe')
 driver.get('https://www.biblegateway.com/passage/?search=Juan%203%3A16&version=RVR1960')
 
@@ -38,10 +34,11 @@ for versiculo in datos.values:
     print(version)
 
        
-    registro = ""+str(disponible)+";"+str(cita)+";"+str(version)+""
+    registro = ""+str(disponible)+"/"+str(cita)+"/"+str(version)+""
 
 
     csv = open('Versiculo_Salida.csv','a')
+    
     importacion = str(registro)
     csv.write(importacion+"\n")
     csv.close()
