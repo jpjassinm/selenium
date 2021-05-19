@@ -12,12 +12,13 @@ driver = webdriver.Chrome('./chromedriver.exe')
 driver.get('https://www.clccolombia.com/product/biblia-rvrcolor-maderala-verdad-para-las-generacionesrustica')
 
 
-datos = pd.read_csv('./isbnCLC/isbn.csv',header=0)
+datos = pd.read_csv('./ENTRADA/versiculos.csv',header=0)
 print(datos)
 
 for isbn in datos.values:
 
     sleep(1)
+    
     consulta = int(isbn)
     ingreso_producto = driver.find_element_by_xpath('//input[@class="search-text-input"]')
     ingreso_producto.send_keys(consulta)
@@ -79,10 +80,3 @@ for isbn in datos.values:
         importacion = str(registro)
         csv.write(importacion+"\n")
         csv.close()
-
-
-
-
-
-
-
