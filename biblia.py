@@ -13,19 +13,30 @@ for versiculo in datos.values:
 
     ingreso_producto = driver.find_element_by_xpath('/html/body/div[2]/div/section/div[1]/div/form/div[1]/div[1]/input')
     ingreso_producto.clear()
-    sleep(1)
+
     
     consulta = versiculo
     ingreso_versiculo = driver.find_element_by_xpath('/html/body/div[2]/div/section/div[1]/div/form/div[1]/div[1]/input')
     ingreso_versiculo.send_keys(consulta)    
-    sleep(1)
+  
 
     click_producto = driver.find_element_by_xpath('/html/body/div[2]/div/section/div[1]/div/form/div[2]/div/div[2]/button')
     click_producto.click()
     sleep(1)
 
-    disponible = driver.find_element_by_xpath('/html/body/div[2]/div/section/div[3]/div/div[2]/section/div[1]/div[1]/div[2]/div[2]/div[2]/div/div[1]/p').text
-    print(disponible)
+    try:
+        versiculo = driver.find_element_by_xpath('/html/body/div[2]/div/section/div[3]/div/div[2]/section/div[1]/div[1]/div[2]/div[2]/div[2]/div/div[1]/p').text
+        print(versiculo)
+    except:
+        versiculo = driver.find_element_by_xpath('/html/body/div[2]/div/section/div[3]/div/div[2]/section/div[1]/div[1]/div[2]/div[2]/div[2]/div/div[1]/div/p').text
+        print(versiculo)
+        
+
+    try:
+        titulo = driver.find_element_by_xpath('/html/body/div[2]/div/section/div[3]/div/div[2]/section/div[1]/div[1]/div[2]/div[2]/div[2]/div/div/h3').text
+        print(titulo)
+    except:
+        titulo=""
 
     cita = driver.find_element_by_xpath('/html/body/div[2]/div/section/div[3]/div/div[2]/section/div[1]/div[1]/div[2]/div[2]/h1/div[1]/div/div[1]').text
     print(cita)
@@ -34,8 +45,7 @@ for versiculo in datos.values:
     print(version)
 
        
-    registro = ""+str(disponible)+"/"+str(cita)+"/"+str(version)+""
-
+    registro = ""+str(versiculo)+"/"+str(titulo)+"/"+str(cita)+"/"+str(version)+""
 
     csv = open('Versiculo_Salida.csv','a')
     
